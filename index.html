@@ -565,9 +565,9 @@
     <header>
         <div class="container">
             <div class="hero-content">
-                <div class="avatar" onclick="document.getElementById('avatarUpload').click()">
-                    <span class="avatar-placeholder">🚀</span>
-                    <input type="file" id="avatarUpload" accept="image/*" onchange="loadAvatar(event)">
+                <div class="avatar">
+                    <!-- Replace 'profile.jpg' with actual photo filename -->
+                    <img src="profile.jpg" alt="Su Su Yi" onerror="this.style.display='none'; this.parentElement.innerHTML='🚀';">
                 </div>
                 <h1>Su Su Yi</h1>
                 <p class="tagline">AI Engineer & System Analyst</p>
@@ -739,20 +739,5 @@
     <footer>
         <p>Created by Su Su Yi.</p>
     </footer>
-
-    <script>
-        function loadAvatar(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const avatar = document.querySelector('.avatar');
-                    avatar.innerHTML = '<img src="' + e.target.result + '" alt="Profile Picture">';
-                    avatar.style.background = 'none';
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-    </script>
 </body>
 </html>
