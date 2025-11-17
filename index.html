@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Su Su Yi - AI Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,9 +15,9 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background: #0a0a0a;
-            overflow-x: hidden;
+            color: #2d3748;
+            background: #f4f0e8;
+            font-size: 13px;
         }
 
         .animated-bg {
@@ -27,60 +28,40 @@
             height: 100%;
             z-index: -1;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .animated-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(78, 205, 196, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(255, 195, 113, 0.3) 0%, transparent 50%);
-            animation: pulse 15s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.1); }
+            opacity: 0.03;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         header {
-            padding: 80px 0 60px;
+            padding: 60px 0 40px;
             text-align: center;
             position: relative;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
         }
 
         .avatar {
             width: 220px;
             height: 220px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.5rem;
             color: white;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+            transition: transform 0.3s ease;
             overflow: hidden;
-            cursor: pointer;
             position: relative;
+        }
+
+        .avatar:hover {
+            transform: translateY(-4px);
         }
 
         .avatar img {
@@ -90,473 +71,331 @@
             border-radius: 50%;
         }
 
-        .avatar input[type="file"] {
-            display: none;
-        }
-
-        .avatar-placeholder {
-            font-size: 2.5rem;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 12px;
-            color: white;
+            margin-bottom: 8px;
+            color: #1a202c;
             letter-spacing: -0.02em;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            animation: slideDown 1s ease-out;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .tagline {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: rgba(255,255,255,0.95);
-            animation: slideUp 1s ease-out 0.2s both;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: #4a5568;
+            font-weight: 400;
         }
 
         .location {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.85);
-            animation: fadeIn 1s ease-out 0.4s both;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        .scroll-indicator::before {
-            content: '↓';
-            font-size: 2rem;
-            color: white;
-            opacity: 0.7;
+            font-size: 0.875rem;
+            color: #718096;
+            font-weight: 400;
         }
 
         nav {
-            background: rgba(255,255,255,0.98);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e2e8f0;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         nav .container {
-            padding: 25px 20px;
+            padding: 16px 24px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 40px;
+            gap: 24px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         nav a {
-            color: #667eea;
+            color: #4a5568;
             text-decoration: none;
-            font-size: 1.05rem;
-            font-weight: 600;
-            transition: all 0.3s;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
             position: relative;
-            padding: 5px 0;
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 3px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transition: width 0.3s;
-            border-radius: 2px;
-        }
-
-        nav a:hover::after {
-            width: 100%;
+        nav a:hover {
+            color: #667eea;
         }
 
         section {
-            background: rgba(255,255,255,0.95);
-            margin: 50px auto;
-            padding: 80px 60px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 70px rgba(0,0,0,0.25);
-        }
-
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #667eea);
-            background-size: 200% 100%;
-            animation: gradient 3s linear infinite;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 200% 0%; }
+            background: white;
+            margin: 20px auto;
+            padding: 28px 32px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
         }
 
         h2 {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
+            color: #1a202c;
             letter-spacing: -0.01em;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 80px;
-            height: 5px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 3px;
         }
 
         .about-content {
-            font-size: 1.15rem;
-            line-height: 2;
-            color: #444;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: #4a5568;
         }
 
         .about-content p {
-            margin-bottom: 25px;
-            padding: 25px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-            border-left: 4px solid #667eea;
-            transition: all 0.3s;
-        }
-
-        .about-content p:hover {
-            transform: translateX(10px);
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            margin-bottom: 12px;
         }
 
         .project-card {
-            margin-bottom: 35px;
-            padding: 40px;
-            border-radius: 15px;
-            background: white;
-            border: 2px solid transparent;
-            background-image: linear-gradient(white, white), 
-                              linear-gradient(135deg, #667eea, #764ba2);
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .project-card:hover::before {
-            left: 100%;
+            margin-bottom: 16px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fafbfc;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
         }
 
         .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
-        }
-
-        .project-card:nth-child(2) {
-            background-image: linear-gradient(white, white), 
-                              linear-gradient(135deg, #764ba2, #f093fb);
-        }
-
-        .project-card:nth-child(3) {
-            background-image: linear-gradient(white, white), 
-                              linear-gradient(135deg, #4ecdc4, #44a08d);
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
         }
 
         .project-card h3 {
-            font-size: 1.7rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #1a1a1a;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a202c;
         }
 
         .project-card p {
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-size: 1.05rem;
+            color: #4a5568;
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 0.875rem;
         }
 
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 25px;
+            gap: 6px;
+            margin-top: 12px;
         }
 
         .tag {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-            transition: all 0.3s;
-            cursor: default;
+            background: white;
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 14px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
         }
 
         .tag:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
         }
 
         .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .skill-category {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px;
-            border-radius: 15px;
-            color: white;
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            transition: all 0.6s;
-        }
-
-        .skill-category:hover::before {
-            top: -100%;
-            right: -100%;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            border: none;
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            transition: none;
         }
 
         .skill-category:hover {
-            transform: translateY(-10px) rotate(2deg);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        }
-
-        .skill-category:nth-child(2) {
-            background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
-        }
-
-        .skill-category:nth-child(3) {
-            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
-        }
-
-        .skill-category:nth-child(4) {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            border-color: transparent;
+            box-shadow: none;
         }
 
         .skill-category h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0;
+            color: #1a202c;
+            min-width: 180px;
+            flex-shrink: 0;
             position: relative;
+            padding-left: 16px;
+        }
+
+        .skill-category h3::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
         }
 
         .skill-category ul {
             list-style: none;
-            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            align-items: center;
         }
 
         .skill-category li {
-            padding: 12px 0;
-            color: rgba(255,255,255,0.95);
-            font-size: 1.05rem;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s;
-            padding-left: 0;
-        }
-
-        .skill-category li:hover {
-            padding-left: 10px;
-            color: white;
-        }
-
-        .skill-category li:last-child {
+            padding: 0;
+            color: #4a5568;
+            font-size: 0.8rem;
             border-bottom: none;
+            position: relative;
+        }
+
+        .skill-category li:not(:last-child)::after {
+            content: ' | ';
+            color: #cbd5e0;
+            margin: 0 8px;
         }
 
         .experience-item, .education-item {
-            margin-bottom: 40px;
-            padding: 40px;
-            background: white;
-            border-radius: 15px;
-            border-left: 6px solid #667eea;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
         }
 
-        .experience-item:hover, .education-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+        .experience-item:last-child, .education-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .experience-item::before, .education-item::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #667eea;
+        }
+
+        .experience-item::after, .education-item::after {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% - 6px);
+            background: #e2e8f0;
+        }
+
+        .experience-item:last-child::after, .education-item:last-child::after {
+            display: none;
         }
 
         .experience-item h3, .education-item h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 4px;
         }
 
         .role, .degree {
             color: #667eea;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            font-weight: 500;
         }
 
         .period {
-            color: #999;
-            font-size: 1rem;
-            margin-bottom: 18px;
-            font-style: italic;
+            color: #718096;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
         }
 
         .description {
-            color: #555;
-            line-height: 1.9;
-            font-size: 1.05rem;
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 0.875rem;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 24px;
             flex-wrap: wrap;
         }
 
         .contact-links a {
             display: inline-block;
             transition: all 0.3s;
+            opacity: 0.7;
         }
 
         .contact-links a:hover {
-            transform: translateY(-5px);
+            opacity: 1;
+            transform: translateY(-3px);
         }
 
         .contact-links svg {
-            width: 40px;
-            height: 40px;
+            width: 28px;
+            height: 28px;
             transition: all 0.3s;
-        }
-
-        .contact-links a:hover svg {
-            opacity: 0.7;
         }
 
         footer {
             text-align: center;
-            padding: 30px 0;
-            color: rgba(255,255,255,0.8);
-            font-size: 1.05rem;
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
-            /* margin-top: 60px; */
+            padding: 32px 0;
+            color: #718096;
+            font-size: 0.8rem;
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 1.75rem;
             }
 
             h2 {
-                font-size: 1.8rem;
-            }
-
-            nav ul {
-                gap: 20px;
+                font-size: 1.25rem;
             }
 
             section {
-                padding: 50px 30px;
-                margin: 30px auto;
+                padding: 24px 20px;
+                margin: 16px auto;
             }
 
-            .skills-grid, .contact-links {
-                grid-template-columns: 1fr;
+            nav ul {
+                gap: 16px;
+            }
+
+            .skill-category {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .skill-category h3 {
+                min-width: auto;
             }
 
             .avatar {
-                width: 120px;
-                height: 120px;
-                font-size: 2.5rem;
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
@@ -566,16 +405,13 @@
 
     <header>
         <div class="container">
-            <div class="hero-content">
-                <div class="avatar">
-                    <!-- Replace 'profile.jpg' with actual photo filename -->
-                    <img src="profile.png" alt="Su Su Yi" onerror="this.style.display='none'; this.parentElement.innerHTML='🚀';">
-                </div>
-                <h1>Su Su Yi</h1>
-                <p class="tagline">Building Intelligent Systems with AI & Machine Learning</p>
-                <p class="location">📍 Singapore</p>
+            <div class="avatar">
+                <!-- Replace 'profile.jpg' with your actual photo filename -->
+                <img src="profile.png" alt="Su Su Yi" onerror="this.style.display='none'; this.parentElement.innerHTML='🚀';">
             </div>
-            <div class="scroll-indicator"></div>
+            <h1>Su Su Yi</h1>
+            <p class="tagline">Building Intelligent Systems with AI & Machine Learning</p>
+            <p class="location">📍 Singapore</p>
         </div>
     </header>
 
@@ -643,9 +479,23 @@
             
             <div class="experience-item">
                 <h3>System Analyst</h3>
-                <p class="role">Current Position</p>
-                <p class="period">Singapore</p>
+                <p class="role">Current Company Name</p>
+                <p class="period">Jan 2023 - Present | Singapore</p>
                 <p class="description">Analyzing business requirements and translating them into technical solutions. Collaborating with cross-functional teams to design and implement system improvements. Managing data workflows and ensuring system efficiency and reliability.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Junior System Analyst</h3>
+                <p class="role">Previous Company Name</p>
+                <p class="period">Jun 2021 - Dec 2022 | Singapore</p>
+                <p class="description">Supported senior analysts in gathering requirements and documenting technical specifications. Assisted in data analysis and reporting. Participated in system testing and quality assurance processes.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Data Analyst Intern</h3>
+                <p class="role">Company Name</p>
+                <p class="period">Jan 2021 - May 2021 | Singapore</p>
+                <p class="description">Conducted data cleaning and preprocessing for machine learning projects. Created data visualizations and reports for stakeholders. Assisted in developing predictive models using Python and SQL.</p>
             </div>
         </section>
 
@@ -656,13 +506,14 @@
                 <h3>Nanyang Technological University, Singapore</h3>
                 <p class="degree">Master of Science in Artificial Intelligence</p>
                 <p class="period">2023 - 2025</p>
-                <p class="description">Advanced coursework in machine learning, deep learning, reinforcement learning, natural language processing, computer vision, AI ethics, large language models, time series analysis, neuro evolution and fuzzy intelligence and multi-agent system.</p>
+                <p class="description">Advanced coursework in machine learning, deep learning, reinforcement learning, AI ethics, large language models, natural language processing, computer vision, time series analysis, multi-agent system and neuro-fuzzy intelligence.</p>
             </div>
 
             <div class="education-item">
                 <h3>Yangon Technological University, Myanmar</h3>
-                <p class="degree">Bachelor of Engineering (Computer Engineering and Information Technology)</p>
+                <p class="degree">Bachelor of Engineering in Computer Engineering and Information Technology</p>
                 <p class="period">2013 - 2019</p>
+                <!-- <p class="description">Focused on software engineering, data structures, algorithms, database systems, and networking. Dean's List recipient for academic excellence.</p> -->
             </div>
         </section>
 
@@ -719,7 +570,7 @@
             <h2>Contact</h2>
             <div class="contact-links">
                 <a href="mailto:susuyi.titania@gmail.com" aria-label="Email">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
@@ -739,8 +590,7 @@
     </div>
 
     <footer>
-        <p>CREATED BY</p>
-        <p>SU SU YI</p>
+        <p>Created by Su Su Yi</p>
     </footer>
 </body>
 </html>
